@@ -1,20 +1,19 @@
-package score;
+package pong;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-import javax.swing.*;
+import java.awt.Graphics;
+import java.awt.Font;
+import java.awt.Color;
 
-public class Score {
+public class Score implements Drawlable {
 	
-	static int GAME_WIDTH;
-	static int GAME_HEIGHT;
+	int GAME_WIDTH;
+	int GAME_HEIGHT;
 	int player1;
 	int player2;
 
-	public Score(int GAME_WIDTH, int GAME_HEIGHT) {
-		Score.GAME_WIDTH = GAME_WIDTH;
-		Score.GAME_HEIGHT = GAME_HEIGHT;
+	public Score(Main game) {
+		GAME_WIDTH = game.display.canvas.getWidth();
+		GAME_HEIGHT = game.display.canvas.getHeight();
 		
 	}
 	
