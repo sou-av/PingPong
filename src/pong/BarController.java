@@ -13,11 +13,22 @@ public class BarController extends Thread implements KeyListener {
 	
 	@Override
 	public void run() {
+		final int height = game.display.canvas.getHeight();
 		while (true) {
 			try {
+				if (game.bar1.checkCollisionAt(null, 1))
+					game.bar1.setPos((int)game.bar1.x, 1);
+				else if (game.bar1.checkCollisionAt(null, height))
+					game.bar1.setPos((int)game.bar1.x, height - game.bar1.height);
+				
+				if (game.bar2.checkCollisionAt(null, 1))
+					game.bar2.setPos((int)game.bar2.x, 1);
+				else if (game.bar2.checkCollisionAt(null, height))
+					game.bar2.setPos((int)game.bar2.x, height - game.bar2.height);
+				
 				game.bar1.move(0, speed1);
 				game.bar2.move(0, speed2);
-				Thread.sleep(100);
+				Thread.sleep(100); 
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

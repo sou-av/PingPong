@@ -2,7 +2,7 @@ package pong;
 
 import java.awt.Graphics;
 
-public class Bar implements Drawlable, Moveable {
+public class Bar implements Drawlable, Moveable, Collidable {
 	double x, y;
 	int width, height;
 	
@@ -26,5 +26,13 @@ public class Bar implements Drawlable, Moveable {
 	public void move(double x, double y) {
 		this.x += x;
 		this.y += y;
+	}
+
+	@Override
+	public boolean checkCollisionAt(Integer checkX, Integer checkY) {
+		return (checkX == null ? true :
+				x <= checkX && checkX <= x + width)
+			&& (checkY == null ? true :
+				y <= checkY && checkY <= y + height);
 	}
 }
