@@ -30,7 +30,9 @@ public class Bar implements Drawlable, Moveable, Collidable {
 
 	@Override
 	public boolean checkCollisionAt(Integer checkX, Integer checkY) {
-		return (x <= checkX && checkX <= x + width
-			&& y <= checkY && checkY <= y + height);
+		return (checkX == null ? true :
+				x <= checkX && checkX <= x + width)
+			&& (checkY == null ? true :
+				y <= checkY && checkY <= y + height);
 	}
 }
